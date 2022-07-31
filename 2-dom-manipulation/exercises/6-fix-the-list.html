@@ -50,10 +50,11 @@
           const ul = document.querySelector('ul');
           const listItems = [];
           console.dir(listItems);
-          const createUl = document.createElement('UL');
-          for (let i = 0; i < 3; i++) {
-            listItems[i] = actualDiv.children[i].cloneNode(true);
-          }
+          listItems.push(actualDiv.children[i].cloneNode(true));
+          // const createUl = document.createElement('UL');
+          // for (let i = 0; i < 3; i++) {
+          //   listItems.push(actualDiv.children[i].cloneNode(true));
+          // }
           console.log(listItems);
           // actualDiv.replaceChild(createl, actualDiv.children[0]);
 
