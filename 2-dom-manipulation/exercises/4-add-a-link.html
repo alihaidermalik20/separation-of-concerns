@@ -25,6 +25,7 @@
       <div id="side to inspect" class="exercise-output">
         <div id="expected">
           <h2>a great tutorial on DOM manipulation:</h2>
+          <!-- there's no expected attribute in html, mb he means target -->
           <a
             href="https://www.youtube.com/watch?v=0ik6X4DJKCc"
             expected="_blank"
@@ -52,9 +53,16 @@
           // first create a node and then append it as a child
           // but we don't need it nested inside h2 but adjacent to h2
           const newLinkNode = document.createElement('a');
-          newLinkNode.innerHTML =
-            '<a href="https://www.youtube.com/watch?v=0ik6X4DJKCc" expected="_blank">Mr. Traversy does it again!</a>';
-          header.appendChild(newLinkNode);
+
+          // this won't work because there's already an a element and now it will have a href .... inside of it. Instead, it should be done separately
+          // newLinkNode.innerHTML =
+          //   '<a href="https://www.youtube.com/watch?v=0ik6X4DJKCc" expected="_blank">Mr. Traversy does it again!</a>';
+
+          newLinkNode.expected = '_blank';
+          newLinkNode.href = 'https://www.youtube.com/watch?v=0ik6X4DJKCc';
+          newLinkNode.innerText = 'Mr. Traversy does it again!';
+          // header.appendChild(newLinkNode);
+          header.insertAdjacentElement('afterend', newLinkNode);
           console.dir(newLinkNode);
         </script>
       </div>
