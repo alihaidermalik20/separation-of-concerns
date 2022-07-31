@@ -46,6 +46,16 @@
           debugger;
 
           // write me! (... without using cloneNode, that's kind of cheating)
+          const firstUl = document.querySelector('ul');
+          console.dir(firstUl);
+          // save the list items as an array
+          const listItems = firstUl.children;
+          const firstOl = document.querySelector('ol');
+          console.dir(firstOl);
+          console.log(listItems);
+          for (let i = 0; i < 3; i++) {
+            firstOl.replaceChild(listItems[i], firstOl.children[i]);
+          }
         </script>
       </div>
 
