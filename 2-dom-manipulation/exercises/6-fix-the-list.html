@@ -46,16 +46,24 @@
           debugger;
 
           // write me! (... without using cloneNode, that's kind of cheating)
-          const firstUl = document.querySelector('ul');
-          console.dir(firstUl);
-          // save the list items as an array
-          const listItems = firstUl.children;
-          const firstOl = document.querySelector('ol');
-          console.dir(firstOl);
-          console.log(listItems);
+          const actualDiv = document.querySelector('#actual');
+          const ul = document.querySelector('ul');
+          const listItems = [];
+          console.dir(listItems);
+          const createUl = document.createElement('UL');
           for (let i = 0; i < 3; i++) {
-            firstOl.replaceChild(listItems[i], firstOl.children[i]);
+            listItems[i] = actualDiv.children[i].cloneNode(true);
           }
+          console.log(listItems);
+          // actualDiv.replaceChild(createl, actualDiv.children[0]);
+
+          // const ol = document.querySelector('ol');
+          // console.dir(ol);
+          // ol.removeChild(ol.lastElementChild);
+          // ol.children[1].innerHTML = 'solar systems';
+          // const header = document.createElement('h1');
+          // header.innerHTML = 'a list of things';
+          // ol.insertAdjacentElement('beforebegin', header);
         </script>
       </div>
 
