@@ -40,6 +40,11 @@
           debugger;
 
           // write me! (... without using cloneNode, that's kind of cheating)
+          const link = document.querySelector('#actual').firstElementChild;
+          console.log(link);
+          console.dir(link);
+          link.outerHTML =
+            '<a href="https://www.badgerbadgerbadger.com" expected="_blank">learn about badgers</a>';
         </script>
       </div>
 

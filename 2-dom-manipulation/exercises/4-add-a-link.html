@@ -41,6 +41,21 @@
           debugger;
 
           // write me! (... without using cloneNode, that's kind of cheating)
+          const header = document.querySelector('#actual h2');
+          console.dir(header);
+
+          // this won't work because you're trying to append a string not a node
+          // const linkToAppend =
+          //   '<a href="https://www.youtube.com/watch?v=0ik6X4DJKCc" expected="_blank">Mr. Traversy does it again!</a>';
+          //   header.appendChild(linkToAppend)
+
+          // first create a node and then append it as a child
+          // but we don't need it nested inside h2 but adjacent to h2
+          const newLinkNode = document.createElement('a');
+          newLinkNode.innerHTML =
+            '<a href="https://www.youtube.com/watch?v=0ik6X4DJKCc" expected="_blank">Mr. Traversy does it again!</a>';
+          header.appendChild(newLinkNode);
+          console.dir(newLinkNode);
         </script>
       </div>
 
