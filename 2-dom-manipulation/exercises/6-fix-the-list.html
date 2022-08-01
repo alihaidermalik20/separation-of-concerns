@@ -48,15 +48,23 @@
           // write me! (... without using cloneNode, that's kind of cheating)
           const actualDiv = document.querySelector('#actual');
           const expectedDiv = document.querySelector('#expected');
-          const expectedUl = document.querySelector('ul');
+          console.log(typeof actualDiv);
           const newUnorderedList = document.createElement('ul');
-          for (let i = 0; i < expectedUl.children[1].childElementCount; i++) {
+          // childElementCount is an element function not a node function. append child is for node not element
+          // for (let i = 0; i < expectedUl.children[1].childElementCount; i++) {
+          //   const newLi = document.createElement('LI');
+          //   newLi.innerHTML = expectedUl.children[1].children[i].innerHTML;
+          //   newUnorderedList.appendChild(newLi);
+          // }
+
+          // expectedUl.children[1]
+          for (let i = 0; i < expectedDiv.children[1].childElementCount; i++) {
             const newLi = document.createElement('LI');
-            newLi.innerHTML = expectedUl.children[1].children[i].innerHTML;
+            newLi.innerHTML = expectedDiv.children[1].children[i].innerHTML;
             newUnorderedList.appendChild(newLi);
           }
           console.dir(newUnorderedList);
-          actualDiv.replaceChild(newUnorderedList, actualDiv.children[1]);
+          actualDiv.replaceChild(newUnorderedList, actualDiv.children[0]);
           // const createUl = document.createElement('UL');
           // for (let i = 0; i < 3; i++) {          //   listItems.push(actualDiv.children[i].cloneNode(true));
           // }
