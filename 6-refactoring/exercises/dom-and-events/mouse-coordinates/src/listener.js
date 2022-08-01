@@ -1,8 +1,8 @@
 import { CHANGE_EVENT, INPUT_ID } from '../data/constants.js';
 import { showMouseCoordinates } from './handler.js';
 
-export const eventListener = (anything) => {
+export const eventListener = (id = '') => {
   document
-    .getElementById(INPUT_ID)
-    .addEventListener(CHANGE_EVENT, showMouseCoordinates(xValue, yValue));
+    .getElementById(id)
+    .addEventListener(CHANGE_EVENT, showMouseCoordinates);
 };
