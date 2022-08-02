@@ -48,35 +48,17 @@
           // write me! (... without using cloneNode, that's kind of cheating)
           const actualDiv = document.querySelector('#actual');
           const expectedDiv = document.querySelector('#expected');
-          console.log(typeof actualDiv);
           const newUnorderedList = document.createElement('ul');
-          // childElementCount is an element function not a node function. append child is for node not element
-          // for (let i = 0; i < expectedUl.children[1].childElementCount; i++) {
-          //   const newLi = document.createElement('LI');
-          //   newLi.innerHTML = expectedUl.children[1].children[i].innerHTML;
-          //   newUnorderedList.appendChild(newLi);
-          // }
-
-          // expectedUl.children[1]
           for (let i = 0; i < expectedDiv.children[1].childElementCount; i++) {
             const newLi = document.createElement('LI');
             newLi.innerHTML = expectedDiv.children[1].children[i].innerHTML;
             newUnorderedList.appendChild(newLi);
           }
           console.dir(newUnorderedList);
+          const newHeader = document.createElement('h1');
+          newHeader.innerHTML = expectedDiv.children[0].innerHTML;
+          newUnorderedList.insertAdjacentElement('beforebegin', newHeader);
           actualDiv.replaceChild(newUnorderedList, actualDiv.children[0]);
-          // const createUl = document.createElement('UL');
-          // for (let i = 0; i < 3; i++) {          //   listItems.push(actualDiv.children[i].cloneNode(true));
-          // }
-          // actualDiv.replaceChild(createl, actualDiv.children[0]);
-
-          // const ol = document.querySelector('ol');
-          // console.dir(ol);
-          // ol.removeChild(ol.lastElementChild);
-          // ol.children[1].innerHTML = 'solar systems';
-          // const header = document.createElement('h1');
-          // header.innerHTML = 'a list of things';
-          // ol.insertAdjacentElement('beforebegin', header);
         </script>
       </div>
 

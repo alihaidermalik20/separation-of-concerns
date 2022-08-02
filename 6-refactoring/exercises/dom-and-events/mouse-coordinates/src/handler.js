@@ -1,5 +1,5 @@
 import { DISPLAY_ID } from '../data/constants.js';
-import { formatCoordinates } from './utils.js';
+import { formatCoordinates } from './util.js';
 
 export const showMouseCoordinates = (event) => {
   const xValue = event.pageX;

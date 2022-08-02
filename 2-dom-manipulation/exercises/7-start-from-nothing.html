@@ -44,6 +44,39 @@
           debugger;
 
           // write me! (... without using cloneNode, that's kind of cheating)
+          const expectedDiv = document.querySelector('#expected');
+          const actualDiv = document.querySelector('#actual');
+
+          // doesn't work because it doesn't get the nested lis
+          // console.log(expectedDiv.childNodes.length); // 5 so the lis inside the ul are still not included
+
+          // for (let i = 0; i < expectedDiv.childNodes.length; i++) {
+          //   if (expectedDiv.childNodes[i].nodeType === document.ELEMENT_NODE) {
+          //     console.log('yes');
+          //   }
+          // }
+
+          // console.log(expectedDiv.children[1].nodeName);
+
+          function getNestedElements(node) {
+            const children = node.children;
+            for (let i = 0; i < children.length; i++) {
+              const elemName = children[i].nodeName;
+              const newNode = document.createElement(elemName);
+              // innerHTML of ul contains the li tags and it's text content too. with textContent, you'd have to do recursion
+              newNode.innerHTML = node.children[i].innerHTML;
+              actualDiv.appendChild(newNode);
+              // if (children[i].children.length != 0) {
+              //   getNestedElements(children[i]);
+              // }
+            }
+          }
+
+          getNestedElements(expectedDiv);
+
+          // const newNode = expectedDiv.cloneNode(true);
+          // actualDiv.appendChild(newNode);
+          // console.dir(expectedDiv);
         </script>
       </div>
 
