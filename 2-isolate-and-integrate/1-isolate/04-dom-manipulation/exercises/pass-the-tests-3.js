@@ -14,8 +14,8 @@ console.log(divEl.nodeName + ' (before)', divEl.cloneNode(true));
 // --- write some code ---
 //  you want to create a 2x2 table with a, b, c, d in the squares
 
-// --- --- --- --- --- ---
-
+const tbody = divEl.children[0].children[0];
+tbody.innerHTML = '<tr><td>a</td><td>b</td></tr><tr><td>c</td><td>d</td></tr>';
 console.log(divEl.nodeName + ' (after)', divEl.cloneNode(true));
 
 const expectedInnerHTMLs = ['a', 'b', 'c', 'd'];

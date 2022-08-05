@@ -19,8 +19,12 @@ console.log(divEl.nodeName, divEl.cloneNode(true));
 
 // --- write some code ---
 //  you will need to access and update each <td> element
-
-// --- --- --- --- --- ---
+const firstTr = divEl.children[0].children[0].children[0];
+const firstTd = firstTr.children[0];
+firstTd.textContent = 'a';
+firstTd.nextElementSibling.textContent = 'b';
+firstTr.nextElementSibling.children[0].textContent = 'c';
+firstTr.nextElementSibling.children[1].textContent = 'd';
 
 console.log(divEl.nodeName, divEl.cloneNode(true));
 
